@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:application="http://java.sun.com/xml/ns/javaee/application_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" id="Application_ID" version="6">
+  <display-name>project_ear_app-ear</display-name>
+  <module>
+    <ejb>project_ear_app-service-0.0.1-SNAPSHOT.jar</ejb>
+  </module>
+  <module>
+    <web>
+      <web-uri>project_ear_app-war-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>project_ear_app-war</context-root>
+    </web>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

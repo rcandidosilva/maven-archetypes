@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/resources/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{sampleMB.listEntity}" var="entity">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{bundle['sample.name']}" />
+					</f:facet>
+					<h:commandLink value="#{entity.name}" action="#{sampleMB.prepareUpdateAction}">
+						<f:setPropertyActionListener target="#{sampleMB.entity.id}" value="#{entity.id}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{bundle['sample.email']}" />
+					</f:facet>
+					<h:outputText value="#{entity.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{bundle['sample.login']}" />
+					</f:facet>
+					<h:outputText value="#{entity.login}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

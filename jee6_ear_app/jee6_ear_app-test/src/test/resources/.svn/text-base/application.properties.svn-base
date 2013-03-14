@@ -1,0 +1,19 @@
+### Application Properties
+app.title=Test Tree and Drag-and-Drop
+app.listTitle=Documentos Válidos
+app.treeTitle=Tree View
+app.console=Console Output
+app.restart=Reiniciar
+app.returnSelected=Recuperar Selecionados
+
+### TreeView Properties
+treeview.expandAll=Abrir Tudo
+treeview.colapseAll=Fechar Tudo
+treeview.selectAll=Selecionar Tudo
+treeview.cleanAll=Limpar Tudo
+treeview.deleteDocument=Remover Documento
+treeview.deleteFolder=Remover Pasta
+treeview.deleteSelected=Remover Selecionados
+treeview.search=Pesquisar
+treeview.sortByAsc=Ordernar Asc
+treeview.sortByDesc=Ordernar Desc
