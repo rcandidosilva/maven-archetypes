@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/gotoweb2/!svn/ver/588/trunk/callisto-test/src/br/com/callisto/test/ejb/dbunit
+END
+Colaborador-insert-dataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/gotoweb2/!svn/ver/588/trunk/callisto-test/src/br/com/callisto/test/ejb/dbunit/Colaborador-insert-dataset.xml
+END
+Colaborador-delete-dataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/gotoweb2/!svn/ver/588/trunk/callisto-test/src/br/com/callisto/test/ejb/dbunit/Colaborador-delete-dataset.xml
+END
+ColaboradorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/gotoweb2/!svn/ver/642/trunk/callisto-test/src/br/com/callisto/test/ejb/dbunit/ColaboradorTest.java
+END

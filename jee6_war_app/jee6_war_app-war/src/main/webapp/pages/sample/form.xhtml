@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:messages showSummary="true"/>
+	
+	<h:panelGrid columns="2">
+		<f:facet name="header">
+			<h:outputText value="#{bundle['sample.form']}" />
+		</f:facet>
+		<h:outputLabel value="#{bundle['sample.name']}:" for="name" />
+		<h:inputText id="name" value="#{sampleMB.entity.name}" required="true"/>
+		<h:outputLabel value="#{bundle['sample.email']}:" />
+		<h:inputText value="#{sampleMB.entity.email}"/>
+		<h:outputLabel value="#{bundle['sample.login']}:" />
+		<h:inputText value="#{sampleMB.entity.login}" required="true"/>
+		<h:outputLabel value="#{bundle['sample.password']}:" />
+		<h:inputSecret value="#{sampleMB.entity.password}" redisplay="true" required="true"/>
+		<h:outputLabel value="Role:" />
+		<h:inputText value="#{sampleMB.entity.role}" required="true"/>
+		<h:outputLabel value="Permission:" />
+		<h:inputText value="#{sampleMB.entity.permission}" required="true"/>
+	</h:panelGrid>
+
+</ui:composition>

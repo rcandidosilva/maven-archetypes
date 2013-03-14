@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources>
+	
+    <datasource enabled="true"
+        jndi-name="java:/callisto-ds"
+        pool-name="ArquillianEmbeddedH2Pool">
+        <connection-url>jdbc:h2:mem:arquillian;INIT=CREATE SCHEMA IF NOT EXISTS WEB\;CREATE SCHEMA IF NOT EXISTS DBO</connection-url>
+        <driver>h2</driver>
+    </datasource>	
+    
+ </datasources>
