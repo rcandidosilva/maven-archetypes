@@ -23,26 +23,24 @@ import org.primefaces.model.DualListModel;
 import org.primefaces.model.LazyDataModel;
 
 import com.project.util.annotation.BaseAction;
+import com.project.util.annotation.BaseAction.ActionType;
 import com.project.util.annotation.BaseConfiguration;
-import com.project.util.annotation.BaseDataModel;
 import com.project.util.annotation.BaseNavigation;
 import com.project.util.annotation.BaseQuery;
-import com.project.util.annotation.BaseAction.ActionType;
 import com.project.util.jpa.BaseEntity;
 import com.project.util.jpa.DynamicEntity;
 import com.project.util.jpa.Entity;
 import com.project.util.reflection.ReflectionUtil;
 import com.project.util.service.BaseService;
-import com.project.util.web.model.PrimeDataModel;
 
 
 @BaseConfiguration(baseEntity = BaseEntity.class, actions = {
-        @BaseAction(type = ActionType.PREPARE_SAVE, navigation = @BaseNavigation(error = "/index"), methods = @BaseDataModel),
-        @BaseAction(type = ActionType.PREPARE_UPDATE, navigation = @BaseNavigation(error = "/index"), methods = @BaseDataModel),
-        @BaseAction(type = ActionType.SAVE, navigation = @BaseNavigation(error = "/index"), methods = @BaseDataModel),
-        @BaseAction(type = ActionType.UPDATE, navigation = @BaseNavigation(error = "/index"), methods = @BaseDataModel),
-        @BaseAction(type = ActionType.DELETE, navigation = @BaseNavigation(error = "/index"), methods = @BaseDataModel),
-        @BaseAction(type = ActionType.LIST_ALL, navigation = @BaseNavigation(error = "/index"), methods = @BaseDataModel)})
+        @BaseAction(type = ActionType.PREPARE_SAVE, navigation = @BaseNavigation(error = "/index")),
+        @BaseAction(type = ActionType.PREPARE_UPDATE, navigation = @BaseNavigation(error = "/index")),
+        @BaseAction(type = ActionType.SAVE, navigation = @BaseNavigation(error = "/index")),
+        @BaseAction(type = ActionType.UPDATE, navigation = @BaseNavigation(error = "/index")),
+        @BaseAction(type = ActionType.DELETE, navigation = @BaseNavigation(error = "/index")),
+        @BaseAction(type = ActionType.LIST_ALL, navigation = @BaseNavigation(error = "/index"))})
 @SuppressWarnings("all")
 public abstract class BaseMB implements Serializable {
 
@@ -232,27 +230,6 @@ public abstract class BaseMB implements Serializable {
                 entity = listEntity.get(0);
             }
             loadQueryLists(action);
-        } catch (Exception ex) {
-            JSFUtil.handleException(ex);
-        }
-    }
-
-    public void teste2() throws Exception {
-        
-        BaseAction action = getAction(ActionType.LIST_ALL);
-        BaseDataModel baseMethods = action.methods();
-        try {
-            
-            dataModel = new PrimeDataModel(getBaseService(), getBaseConfiguration().baseEntity(), baseMethods.method(), baseMethods.methodCount());
-            
-            /*
-            if(dataModel.size()>0){
-                 entity = dataModel.get(0);
-            }
-             */
-            
-            loadQueryLists(action);
-
         } catch (Exception ex) {
             JSFUtil.handleException(ex);
         }

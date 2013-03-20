@@ -5,18 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.project.util.jpa.Entity;
-import com.project.util.web.model.Order;
 
 
 public interface BaseService extends Serializable {
 	
 	public List<? extends Entity> listAll(Class<? extends Entity> entity);
-	
-	public List<? extends Entity> listAllPaginated(Class<? extends Entity> clazz, int firstResult, int maxResult, Map<String, String> filters, Order order);
-	
-	public Integer countAll(Class<? extends Entity> clazz);
-	
-	public Integer countAllPaginated(Class<? extends Entity> clazz, Map<String, String> filters);
 	
 	public List<Entity> listByNamedQuery(String namedQuery, Map<String, Object> namedParams);
 	

@@ -37,32 +37,4 @@ public class ReflectionUtil {
 
     }
 
-    public static Method getMethodByName(Class clazz, String methodName) {
-
-        Method methodList[] = clazz.getDeclaredMethods();
-
-        for (int i = 0; i < methodList.length; i++) {
-            Method method = methodList[i];
-            if (method.getName().equals(methodName)) {
-                return method;
-            }
-        }
-        return null;
-    }
-
-    public static Object getObjectByInvokeMethod(Object bean, String methodName, Object... args) throws Exception{
-
-        Method method = getMethodByName(bean.getClass(), methodName);
-        Object object;
-
-        if (method.getParameterTypes().length > 0){
-            
-            object = method.invoke(bean, args);
-        }else{
-            
-            object = method.invoke(bean);
-        }
-        return object;
-    }
-
 }

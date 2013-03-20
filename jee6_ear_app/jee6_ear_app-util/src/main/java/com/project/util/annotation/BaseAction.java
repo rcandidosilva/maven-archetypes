@@ -10,6 +10,4 @@ public @interface BaseAction {
 	
 	public BaseNavigation navigation();
 	
-	public BaseDataModel methods() default @BaseDataModel;
-	
 }
