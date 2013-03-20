@@ -7,7 +7,6 @@ import java.lang.annotation.Target;
 
 import com.project.util.jpa.BaseEntity;
 
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface BaseConfiguration {

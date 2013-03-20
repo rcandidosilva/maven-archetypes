@@ -3,29 +3,20 @@ package com.project.util.service;
 import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Root;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.jboss.seam.transaction.TransactionScoped;
-import org.jboss.seam.transaction.Transactional;
 
 import com.project.util.exception.BaseSystemException;
 import com.project.util.jpa.BaseEntity;
 import com.project.util.jpa.DynamicEntity;
 import com.project.util.jpa.Entity;
-import com.project.util.web.model.Order;
 
 
 @SuppressWarnings("all")
@@ -41,104 +32,13 @@ public abstract class BaseServiceImpl implements BaseService {
         return getEntityManager().createQuery(query).getResultList();
     }
     
-    public List<? extends Entity> listAllPaginated(Class<? extends Entity> clazz, int firstResult, int maxResult, Map<String, String> filters, Order order){
-        
-        StringBuilder hql = new StringBuilder();
-        hql.append("FROM " + clazz.getSimpleName() + " entity ");
-        
-        if(filters != null && !filters.isEmpty()){
-            
-            hql.append(" WHERE 1=1 ");
-            Iterator it = filters.entrySet().iterator();
-            
-            while (it.hasNext()) {
-                
-                Map.Entry pairs = (Map.Entry)it.next();
-                
-                String key = (String) pairs.getKey();
-                String value = (String) pairs.getValue();
-                
-                hql.append(" AND entity."+ key +" LIKE  :"+key);
-            }
-        }
-        
-        if(order != null && order.getField() != null 
-                && !order.getField().equalsIgnoreCase("") && order.getDirection()!=null){
-            
-            hql.append(" ORDER BY entity."+order.getField()+" "+order.getDirection().toString());
-        }
-        
-        Query query = getEntityManager().createQuery(hql.toString());
-        
-        if(filters != null && !filters.isEmpty()){
-            
-            Iterator it = filters.entrySet().iterator();
-            
-            while (it.hasNext()) {
-                
-                Map.Entry pairs = (Map.Entry)it.next();
-                
-                String key = (String) pairs.getKey();
-                String value = (String) pairs.getValue();
-                
-                query.setParameter(key, "%"+value+"%");
-            }
-        }
-        
-        query.setFirstResult(firstResult);
-        query.setMaxResults(maxResult);
-        
-        return query.getResultList();
-    }
+
 
     public Integer countAll(Class<? extends Entity> clazz) {
 
         String hql = "SELECT COUNT( entity.id ) FROM " + clazz.getSimpleName() + " entity";
 
         Query query = getEntityManager().createQuery(hql);
-        Long count = (Long) query.getSingleResult();
-        return count.intValue();
-    }
-    
-    
-    public Integer countAllPaginated(Class<? extends Entity> clazz, Map<String, String> filters){
-        
-        StringBuilder hql = new StringBuilder();
-        hql.append("SELECT COUNT( entity.id ) FROM " + clazz.getSimpleName() + " entity ");
-        
-        if(filters != null && !filters.isEmpty()){
-            
-            hql.append(" WHERE 1=1 ");
-            Iterator it = filters.entrySet().iterator();
-            
-            while (it.hasNext()) {
-                
-                Map.Entry pairs = (Map.Entry)it.next();
-
-                String key = (String) pairs.getKey();
-                String value = (String) pairs.getValue();
-                
-                hql.append(" AND entity."+ key +" LIKE :"+key);
-            }
-        }
-        
-        Query query = getEntityManager().createQuery(hql.toString());
-        
-        if(filters != null && !filters.isEmpty()){
-            
-            Iterator it = filters.entrySet().iterator();
-            
-            while (it.hasNext()) {
-                
-                Map.Entry pairs = (Map.Entry)it.next();
-
-                String key = (String) pairs.getKey();
-                String value = (String) pairs.getValue();
-                
-                query.setParameter(key, "%"+value+"%");
-            }
-        }
-        
         Long count = (Long) query.getSingleResult();
         return count.intValue();
     }
