@@ -8,14 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.primesoft.jpf.jpa.BaseEntity;
-import br.com.primesoft.jpf.security.model.Group;
-import br.com.primesoft.jpf.security.model.Permission;
-import br.com.primesoft.jpf.security.model.Role;
-import br.com.primesoft.jpf.security.model.User;
+import com.project.util.jpa.BaseEntity;
+import com.project.util.security.model.Group;
+import com.project.util.security.model.Permission;
+import com.project.util.security.model.Role;
+import com.project.util.security.model.User;
 
 @Entity
-public class SampleEntity extends BaseEntity implements User {
+public class SampleEntity extends BaseEntity<Long> implements User {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

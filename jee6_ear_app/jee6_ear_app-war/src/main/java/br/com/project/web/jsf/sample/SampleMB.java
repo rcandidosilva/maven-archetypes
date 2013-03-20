@@ -4,14 +4,15 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.primesoft.jpf.annotation.BaseAction;
-import br.com.primesoft.jpf.annotation.BaseConfiguration;
-import br.com.primesoft.jpf.annotation.BaseNavigation;
-import br.com.primesoft.jpf.annotation.BaseAction.ActionType;
-import br.com.primesoft.jpf.service.BaseService;
 import br.com.project.jpa.sample.SampleEntity;
 import br.com.project.service.sample.SampleService;
 import br.com.project.web.jsf.ProjectManagedBean;
+
+import com.project.util.annotation.BaseAction;
+import com.project.util.annotation.BaseAction.ActionType;
+import com.project.util.annotation.BaseConfiguration;
+import com.project.util.annotation.BaseNavigation;
+import com.project.util.service.BaseService;
 
 @BaseConfiguration(baseEntity=SampleEntity.class, actions={
 	@BaseAction(type = ActionType.PREPARE_SAVE, navigation = @BaseNavigation(success = "/pages/sample/save", error = "/index")),

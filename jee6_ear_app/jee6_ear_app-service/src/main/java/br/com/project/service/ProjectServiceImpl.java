@@ -6,8 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
-import br.com.primesoft.jpf.annotation.BaseType;
-import br.com.primesoft.jpf.service.BaseServiceImpl;
+import com.project.util.annotation.BaseType;
+import com.project.util.service.BaseServiceImpl;
 
 @Local(ProjectService.class)
 @Stateless

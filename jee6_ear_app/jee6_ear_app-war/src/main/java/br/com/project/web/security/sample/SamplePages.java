@@ -6,7 +6,7 @@ import org.jboss.seam.faces.security.LoginView;
 import org.jboss.seam.faces.view.config.ViewConfig;
 import org.jboss.seam.faces.view.config.ViewPattern;
 
-import br.com.primesoft.jpf.security.permission.PermissionConstraint;
+import com.project.util.security.permission.PermissionConstraint;
 
 @ViewConfig
 public interface SamplePages {

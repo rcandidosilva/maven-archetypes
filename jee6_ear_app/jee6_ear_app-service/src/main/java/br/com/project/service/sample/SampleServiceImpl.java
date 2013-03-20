@@ -2,21 +2,15 @@ package br.com.project.service.sample;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.ejb.Local;
-import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.enterprise.context.Dependent;
-import javax.enterprise.inject.Model;
 
-import br.com.primesoft.jpf.exception.BaseBusinessException;
-import br.com.primesoft.jpf.jpa.Entity;
-import br.com.primesoft.jpf.security.AuthenticatorService;
-import br.com.primesoft.jpf.security.model.User;
 import br.com.project.jpa.sample.SampleEntity;
 import br.com.project.service.ProjectServiceImpl;
+
+import com.project.util.exception.BaseBusinessException;
+import com.project.util.jpa.Entity;
+import com.project.util.security.model.User;
 
 @Local(SampleServiceImpl.class)
 @Stateless
